@@ -6,6 +6,9 @@ import java.util.Scanner;
  * Created by Jenny St. Peters on 7/27/2017.
  */
 public class PrimeNumber {
+
+    private static Validator Validator = new Validator();
+
     public static void main(String[] args) {
 
         Scanner entry = new Scanner(System.in);
@@ -13,14 +16,10 @@ public class PrimeNumber {
 
         while (loop.equalsIgnoreCase("y")) {
 
-            System.out.print("Please enter the sequence number: ");
-            int enteredSequence = entry.nextInt();
+            int enteredSequence = Validator.getInt("Please enter the sequence number: ", "Invalid entry. ", 0, Integer.MAX_VALUE);
 
             int sequence = 0;
             int i = 2;
-
-            String test = "ajgl;kd8";
-            test.matches(".*[0-9].*");
 
             while (sequence < enteredSequence) {
                 if (isPrime(i) == 1) {
@@ -30,8 +29,9 @@ public class PrimeNumber {
             }
 
             System.out.println(i - 1);
-            System.out.print("Would you like to find another: (y/n) ");
-            loop = entry.next();
+
+            loop = Validator.getString(entry, "Would you like to find another: (y/n) ", "Invalid entry. ");
+
         }
         System.out.println("Goodbye!");
     }
