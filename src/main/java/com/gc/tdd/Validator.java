@@ -9,7 +9,7 @@ public class Validator {
 
     private Scanner entry = new Scanner(System.in);
 
-    public static String getString(Scanner entry, String prompt, String invalidPrompt) {
+    public String getString(String prompt, String invalidPrompt) {
         boolean isValid = false;
         String s = "";
         while (isValid == false) {
